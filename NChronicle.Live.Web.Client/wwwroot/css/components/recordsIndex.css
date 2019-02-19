@@ -1,0 +1,48 @@
+﻿recordsIndex-component {
+    display: block;
+    position: relative
+}
+
+    recordsIndex-component > waiting-component {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+        margin-left: -20px;
+    }
+
+    recordsIndex-component > table {
+        width: 100%;
+        background-color: var(--secondary-background-color);
+    }
+
+        recordsIndex-component > table th:nth-child(even), recordsIndex-component > table td:nth-child(even) {
+            background-color: #222;
+        }
+
+    recordsIndex-component > table > thead > tr {
+        box-sizing: border-box;
+        height: 40px;
+    }
+
+        recordsIndex-component > table > thead > tr > th:hover {
+            border-top: solid 2px var(--primary-accent-color);
+            background-color: var(--header-background-color);
+        }
+
+        recordsIndex-component > table > tbody > tr > td {
+            padding: 5px 10px;
+        }
+
+        recordsIndex-component > table > tbody > tr:hover {
+            background-size: 100%;
+            background: linear-gradient(to right, rgba(165,64,223,1) 0%,rgba(165,115,255,1) 100%);
+            box-shadow: 0 0 5px black;
+            cursor: pointer;
+        }
+
+        recordsIndex-component > table > tbody > tr:hover > td {
+            background-color: transparent;
+        }

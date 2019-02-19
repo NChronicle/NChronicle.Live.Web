@@ -1,0 +1,52 @@
+﻿logo-component {
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+
+    /* default */
+    width: 75px;
+    height: 75px;
+}
+
+    logo-component .image.logo-globe {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+    }
+
+    logo-component .image.logo-curve {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    logo-component[animating] .image.logo-curve {
+        animation: curve-rotation .5s ease-in-out 0s infinite;
+    }
+
+@keyframes curve-rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

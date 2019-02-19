@@ -1,0 +1,20 @@
+﻿:root {
+    --primary-background-color: rgb(30, 30, 30);
+    --primary-foreground-color: rgb(210, 210, 210);
+    --header-background-color: rgb(60, 60, 60);
+    --primary-accent-color: rgb(165, 64, 223);
+}
+
+:root, html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--primary-background-color);
+    color: var(--primary-foreground-color);
+    font-family: 'Segoe UI Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
