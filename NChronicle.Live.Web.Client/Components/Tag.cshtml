@@ -1,0 +1,9 @@
+﻿<tag-component onclick="">
+    <link rel="stylesheet" href="css/components/tag.css" />
+    @ChildContent
+</tag-component>
+
+@functions {
+    [Parameter]
+    public RenderFragment ChildContent { get; private set; }
+}

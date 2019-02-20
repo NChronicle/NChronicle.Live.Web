@@ -1,7 +1,9 @@
 ﻿@inherits Behind.RecordsIndex
 
 <recordsindex-component>
-    <link rel="stylesheet" href="css/components/recordsIndex.css?1" />
+    <link rel="stylesheet" href="css/components/recordsIndex.css" />
+
+    <input type="text" placeholder="Advanced Search" />
 
     @if (this.Records != null)
     {
@@ -25,20 +27,23 @@
             <tbody>
                 @foreach (var record in this.Records)
                 {
-                <tr>
-                    <td width="150">
-                        @record.Time
-                    </td>
-                    <td width="100">
-                        @record.Level
-                    </td>
-                    <td width="">
-                        @record.Message
-                    </td>
-                    <td width="25%">
-                        @String.Join(", ", record.Tags)
-                    </td>
-                </tr>
+                    <tr selectable tabindex="0">
+                        <td>
+                            @record.Time
+                        </td>
+                        <td>
+                            @record.Level
+                        </td>
+                        <td>
+                            @record.Message
+                        </td>
+                        <td>
+                            @foreach (var tag in record.Tags)
+                            {
+                                <tag>@tag</tag>
+                            }
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>

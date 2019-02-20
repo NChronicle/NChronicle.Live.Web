@@ -13,36 +13,26 @@
         margin-left: -20px;
     }
 
-    recordsIndex-component > table {
-        width: 100%;
-        background-color: var(--secondary-background-color);
+    recordsIndex-component > input[type="text"] {
+        margin: 30px;
+        width: 60%;
     }
 
-        recordsIndex-component > table th:nth-child(even), recordsIndex-component > table td:nth-child(even) {
-            background-color: #222;
-        }
-
-    recordsIndex-component > table > thead > tr {
-        box-sizing: border-box;
-        height: 40px;
+    recordsIndex-component table {
+        box-shadow: 0 0 10px black;
     }
 
-        recordsIndex-component > table > thead > tr > th:hover {
-            border-top: solid 2px var(--primary-accent-color);
-            background-color: var(--header-background-color);
-        }
+    recordsIndex-component table th:nth-child(1),
+    recordsIndex-component table td:nth-child(1) {
+        flex: 0 0 150px;
+    }
 
-        recordsIndex-component > table > tbody > tr > td {
-            padding: 5px 10px;
-        }
+    recordsIndex-component table th:nth-child(2),
+    recordsIndex-component table td:nth-child(2) {
+        flex: 0 0 80px;
+    }
 
-        recordsIndex-component > table > tbody > tr:hover {
-            background-size: 100%;
-            background: linear-gradient(to right, rgba(165,64,223,1) 0%,rgba(165,115,255,1) 100%);
-            box-shadow: 0 0 5px black;
-            cursor: pointer;
-        }
-
-        recordsIndex-component > table > tbody > tr:hover > td {
-            background-color: transparent;
-        }
+    recordsIndex-component table th:nth-child(4),
+    recordsIndex-component table td:nth-child(4) {
+        flex: 0 1 25%;
+    }

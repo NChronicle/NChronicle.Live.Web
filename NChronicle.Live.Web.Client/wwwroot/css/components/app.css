@@ -16,13 +16,14 @@
     }
 
     app-component > header > logo-component {
-        height: 60px;
-        width: 60px;
-        margin-left: 10px;
+        height: 55px;
+        width: 55px;
+        margin: 10px;
     }
 
     app-component > content {
         flex: 1 1 auto;
+        overflow-y: auto;
     }
 
     app-component > content > recordsIndex-component {

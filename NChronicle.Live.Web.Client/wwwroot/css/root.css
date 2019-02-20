@@ -3,6 +3,7 @@
     --primary-foreground-color: rgb(210, 210, 210);
     --header-background-color: rgb(60, 60, 60);
     --primary-accent-color: rgb(165, 64, 223);
+    --highlight-accent-color: rgb(90, 40, 120);
 }
 
 :root, html, body {
