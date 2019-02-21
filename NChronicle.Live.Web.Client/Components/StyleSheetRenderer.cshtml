@@ -1,0 +1,15 @@
+﻿@using NChronicle.Live.Web.Client.Services
+
+@inject IStyleSheetService styleSheetService
+
+    <stylesheets>
+        @foreach (var styleSheet in this.styleSheetService.RegisteredStyleSheets)
+        {
+            <link rel="stylesheet" href="@styleSheet" />
+        }
+    </stylesheets>
+
+@functions {
+    protected override void OnInit() =>
+        this.styleSheetService.OnStyleSheetsRegistered += s => this.StateHasChanged();
+}

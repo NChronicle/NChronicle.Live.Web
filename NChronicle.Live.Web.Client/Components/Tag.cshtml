@@ -1,5 +1,8 @@
-﻿<tag-component onclick="">
-    <link rel="stylesheet" href="css/components/tag.css" />
+﻿@inherits BaseComponent
+
+@RegisterStyleSheet("css/components/tag.css")
+
+<tag-component onclick="">
     @ChildContent
 </tag-component>
 

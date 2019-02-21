@@ -1,8 +1,8 @@
 ﻿@inherits Behind.RecordsIndex
 
-<recordsindex-component>
-    <link rel="stylesheet" href="css/components/recordsIndex.css" />
+@RegisterStyleSheet("css/components/recordsIndex.css", "css/global/textbox.css", "css/global/table.css")
 
+<recordsindex-component>
     <input type="text" placeholder="Advanced Search" />
 
     @if (this.Records != null)

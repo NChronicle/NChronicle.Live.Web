@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace NChronicle.Live.Web.Client.Components.Behind
 {
 
-    public class App : ComponentBase
+    public class App : BaseComponent
     {
 
         [Inject] private HttpClient httpClient { get; set; }
