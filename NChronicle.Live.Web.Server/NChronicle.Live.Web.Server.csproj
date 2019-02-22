@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="NChronicle.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="NChronicle.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Server" Version="0.8.0-preview-19104-04" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Server" Version="3.0.0-preview-19075-0444" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview-19075-0444" />
@@ -15,12 +25,6 @@
   <ItemGroup>
     <ProjectReference Include="..\NChronicle.Live.Web.Client\NChronicle.Live.Web.Client.csproj" />
     <ProjectReference Include="..\NChronicle.Live.Web.Shared\NChronicle.Live.Web.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="NChronicle.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

@@ -22,7 +22,6 @@ tbody {
 }
     
 tbody:hover tr td {
-    opacity: 0.6;
 }
 
     tbody tr {
@@ -34,16 +33,22 @@ tbody:hover tr td {
             background-color: rgb(40, 40, 40);
         }
 
-        tbody tr[selectable]:hover,
         tbody tr[selectable]:active,
         tbody tr[selectable]:focus {
+            background: linear-gradient(to right, var(--primary-accent-color) 100%, var(--highlight-accent-color) 200%) !important;
+            box-shadow: inset 0 0 5px var(--primary-background-color);
+            animation: background-animate .5s;
+            animation-fill-mode: forwards;
+        }
+
+        tbody tr[selectable]:hover {
             cursor: pointer;
+            background: linear-gradient(to right, var(--header-background-color), var(--secondary-background-color));
         }
 
         tbody tr[selectable]:hover td,
         tbody tr[selectable]:active td,
         tbody tr[selectable]:focus td {
-            opacity: 1;
         }
 
 th {
@@ -58,4 +63,13 @@ th, td {
     padding: 2px 5px;
     min-height: 100%;
     text-align: left;
+}
+
+@keyframes background-animate {
+    0% {
+        background: linear-gradient(to right, var(--primary-accent-color) -50%, var(--highlight-accent-color) 50%);
+    }
+    100% {
+        background: linear-gradient(to right, var(--primary-accent-color) 100%, var(--highlight-accent-color) 200%);
+    }
 }
