@@ -13,6 +13,7 @@ namespace NChronicle.Live.Web.Client.Components.Dialogs
         [Parameter] public RenderFragment ChildContent { get; private set; }
         [Parameter] public Dictionary<string, Action> Buttons { get; private set; }
         [Parameter] public bool Closable { get; private set; }
+        [Parameter] public bool UnfocusClosable { get; private set; }
         [Parameter] public bool Modal { get; private set; }
         [Parameter] public bool Show { get; private set; }
         [Parameter] public string ContentClass { get; private set; }

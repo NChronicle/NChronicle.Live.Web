@@ -2,12 +2,12 @@
 
 @RegisterStyleSheet("css/components/dialog.css")
 
-<dialog-render>
+<dialog-render class="@(this.Closing ? "closing" : "")">
     @if (this.Dialog.Show)
     {
         @if (this.Dialog.Modal)
         {
-            <div class="dialog-modal-overlay"></div>
+            <div class="dialog-modal-overlay" onclick="@this.OnUnfocus"></div>
         }
         <div class="dialog-box">
             <div class="heading">
@@ -16,7 +16,7 @@
                 </h1>
                 @if (this.Dialog.Closable)
                 {
-            <div class="close-button" aria-label="Close dialog" onclick="@this.OnClose">✕</div>
+                    <div class="close-button" aria-label="Close dialog" onclick="@this.OnClose">✕</div>
                 }
             </div>
             <div class="content @this.Dialog.ContentClass">

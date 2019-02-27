@@ -53,7 +53,7 @@
         <waiting></waiting>
     }
 
-<dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
+<dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" unfocusclosable="@true" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
     @if (this.SelectedChronicleRecord?.Message != null)
     {
         <p class="message">
