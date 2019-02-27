@@ -1,0 +1,73 @@
+﻿dialog-render {
+}
+
+    dialog-render div.dialog-modal-overlay {
+        z-index: 98;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .7);
+        animation: fade-in-reveal .5s;
+    }
+
+    dialog-render div.dialog-box {
+        z-index: 99;
+        position: fixed;
+        background-color: var(--primary-background-color);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 50%;
+        width: 600px;
+        margin-left: -300px;
+        box-shadow: 0 0 10px black;
+        animation: upward-reveal .5s;
+    }
+
+        dialog-render div.dialog-box div.heading {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+            dialog-render div.dialog-box div.heading h1.title {
+                flex: 1 1 auto;
+                font-weight: bold;
+                font-size: inherit;
+                margin: 0;
+                padding: 5px 10px 10px 10px;
+            }
+
+        dialog-render div.dialog-box div.heading div.close-button {
+            font-size: 15px;
+            padding: 5px 10px 10px 10px;
+        }
+
+        dialog-render div.dialog-box div.heading div.close-button:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        dialog-render div.dialog-box div.content {
+            padding: 10px;
+        }
+
+@keyframes upward-reveal {
+    0% {
+        margin-top: 30px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-reveal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

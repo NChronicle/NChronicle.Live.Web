@@ -8,7 +8,6 @@ namespace NChronicle.Live.Web.Client.Services
     {
 
         public IEnumerable<string> RegisteredStyleSheets => this.StyleSheetsHashSet;
-
         public event Action<string[]> OnStyleSheetsRegistered;
 
         private HashSet<string> StyleSheetsHashSet;

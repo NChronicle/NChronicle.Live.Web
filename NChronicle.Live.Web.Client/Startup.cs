@@ -10,6 +10,7 @@ namespace NChronicle.Live.Web.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IStyleSheetService>(new StyleSheetService());
+            services.AddSingleton<IDialogService>(new DialogService());
         }
 
         public void Configure(IComponentsApplicationBuilder app)

@@ -8,7 +8,7 @@ namespace NChronicle.Live.Web.Client.Components
 
         [Inject] private IStyleSheetService styleSheetService { get; set; }
 
-        public object RegisterStyleSheet(params string[] styleSheets) {
+        protected object RegisterStyleSheet(params string[] styleSheets) {
             styleSheetService.RegisterStyleSheet(styleSheets);
             return null;
         }

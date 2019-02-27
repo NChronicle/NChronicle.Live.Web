@@ -23,7 +23,6 @@
 
     app-component > content {
         flex: 1 1 auto;
-        overflow-y: auto;
     }
 
     app-component > content > recordsIndex-component {

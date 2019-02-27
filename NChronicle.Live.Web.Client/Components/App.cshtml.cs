@@ -9,9 +9,9 @@ namespace NChronicle.Live.Web.Client.Components.Behind
     public class App : BaseComponent
     {
 
-        [Inject] private HttpClient httpClient { get; set; }
-
         protected ChronicleRecordDto[] Records;
+
+        [Inject] private HttpClient httpClient { get; set; }
 
         protected override async Task OnInitAsync()
         {

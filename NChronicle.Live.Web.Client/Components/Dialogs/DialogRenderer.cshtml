@@ -1,0 +1,36 @@
+﻿@inherits Behind.DialogRenderer
+
+@RegisterStyleSheet("css/components/dialog.css")
+
+<dialog-render>
+    @if (this.Dialog.Show)
+    {
+        @if (this.Dialog.Modal)
+        {
+            <div class="dialog-modal-overlay"></div>
+        }
+        <div class="dialog-box">
+            <div class="heading">
+                <h1 class="title">
+                    @this.Dialog.Title
+                </h1>
+                @if (this.Dialog.Closable)
+                {
+            <div class="close-button" aria-label="Close dialog" onclick="@this.OnClose">✕</div>
+                }
+            </div>
+            <div class="content @this.Dialog.ContentClass">
+                @this.Dialog.ChildContent
+            </div>
+            @if (this.Dialog.Buttons != null)
+            {
+                <div class="buttons">
+                    @foreach (var button in this.Dialog.Buttons)
+                    {
+                        <button onclick="@button.Value">@button.Key</button>
+                    }
+                </div>
+            }
+        </div>
+    }
+</dialog-render>

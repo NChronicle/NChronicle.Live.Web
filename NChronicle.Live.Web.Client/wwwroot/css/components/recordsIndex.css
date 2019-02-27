@@ -36,3 +36,21 @@
     recordsIndex-component table td:nth-child(4) {
         flex: 0 1 25%;
     }
+
+.record-detail-modal p:first-of-type {
+    margin-top: 0;
+}
+
+.record-detail-modal p:last-of-type {
+    margin-bottom: 0;
+}
+
+.record-detail-modal h2 {
+    font-size: inherit;
+    margin: 0;
+}
+
+.record-detail-modal p.tags span {
+    display: block;
+    margin-top: 10px;
+}

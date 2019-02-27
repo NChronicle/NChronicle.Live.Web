@@ -11,7 +11,7 @@
     input[type="text"]:active {
         border: solid 1px var(--primary-accent-color);
         box-shadow: 0 0 3px var(--primary-accent-color);
-        animation: border-glow .25s;
+        animation: border-glow .5s;
     }
 
 @keyframes border-glow {

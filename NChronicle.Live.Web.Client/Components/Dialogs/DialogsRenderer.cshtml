@@ -1,0 +1,22 @@
+﻿@using NChronicle.Live.Web.Client.Services
+
+@inherits BaseComponent
+
+@inject IDialogService dialogService
+
+@RegisterStyleSheet("css/components/dialogs.css")
+
+<dialogs>
+    @foreach (var dialog in this.dialogService.RegisteredDialogs)
+    {
+        <DialogRenderer dialog="@dialog"></DialogRenderer>
+    }
+</dialogs>
+
+@functions {
+    protected override void OnInit()
+    {
+        this.dialogService.OnDialogRegistered += d => this.StateHasChanged();
+        this.dialogService.OnDialogUnregistered += d => this.StateHasChanged();
+    }
+}
