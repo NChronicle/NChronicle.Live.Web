@@ -14,12 +14,14 @@
     }
 
     recordsIndex-component > input[type="text"] {
-        margin: 30px;
+        margin: 2.5%;
         width: 60%;
     }
 
     recordsIndex-component table {
-        box-shadow: 0 0 10px black;
+        margin: 0 2.5%;
+        width: 95%;
+        box-shadow: 0 5px 10px black;
     }
 
     recordsIndex-component table th:nth-child(1),
