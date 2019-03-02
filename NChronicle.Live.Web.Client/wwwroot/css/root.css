@@ -2,9 +2,9 @@
     --primary-background-color: rgb(30, 30, 30);
     --secondary-background-color: rgb(40, 40, 40);
     --primary-foreground-color: rgb(210, 210, 210);
-    --header-background-color: rgb(60, 60, 60);
     --primary-accent-color: rgba(165, 64, 223, 1);
-    --highlight-accent-color: rgb(90, 40, 120);
+    --secondary-accent-color: rgba(165, 64, 223, .4);
+    --tertiary-accent-color: rgba(180, 180, 180, 0.4);
 }
 
 :root, html, body {
@@ -12,14 +12,82 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
     background: linear-gradient(to top right, var(--primary-background-color), var(--secondary-background-color));
+    background-attachment: fixed;
     color: var(--primary-foreground-color);
     font-family: 'Segoe UI Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 object {
     background: none no-repeat transparent;
+}
+
+@keyframes upward-reveal {
+    0% {
+        margin-top: 30px;
+        opacity: 0;
+    }
+
+    100% {
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes downward-hide {
+    0% {
+        margin-top: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: 30px;
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-reveal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out-hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes border-glow {
+    0% {
+        border: solid 1px rgba(165, 64, 223, 0);
+        box-shadow: 0 0 3px rgba(165, 64, 223, 0);
+    }
+
+    100% {
+        border: solid 1px var(--primary-accent-color);
+        box-shadow: 0 0 3px var(--primary-accent-color);
+    }
 }

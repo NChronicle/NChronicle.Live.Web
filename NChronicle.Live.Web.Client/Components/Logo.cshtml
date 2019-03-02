@@ -2,7 +2,19 @@
 
 @RegisterStyleSheet("css/components/logo.css")
 
-<logo-component>
-    <object class="image logo-globe" data="img/logo-globe.svg" type="image/svg+xml"></object>
-    <object class="image logo-curve" data="img/logo-curve.svg" type="image/svg+xml"></object>
-</logo-component>
+    <logo-component class="@(Animating ?  "animating" : "")">
+        <line style="width: 65%; animation-direction: reverse;  animation-delay: .3s; animation-duration: 1.3s;"></line>
+        <line style="width: 40%; animation-delay: .2s;"></line>
+        <line style="width: 85%; animation-direction: reverse;  animation-delay: .3s;"></line>
+        <line style="width: 60%; animation-delay: .6s; animation-duration: .8s;"></line>
+        <line style="width: 95%; animation-delay: .5s;"></line>
+        <line style="width: 70%; animation-direction: reverse; animation-duration: 1.3s;"></line>
+        <line style="width: 40%; animation-duration: .9s;"></line>
+        <line style="width: 100%; animation-delay: .4s;"></line>
+        <line style="width: 60%; animation-direction: reverse; animation-duration: 1.3s;"></line>
+        <line style="width: 50%;  animation-delay: .4s;"></line>
+    </logo-component>
+
+@functions {
+    [Parameter] public bool Animating { get; private set; }
+}

@@ -6,12 +6,7 @@
 
 @RegisterStyleSheet("css/components/dialogs.css")
 
-<dialogs>
-    @foreach (var dialog in this.dialogService.RegisteredDialogs)
-    {
-        <DialogRenderer dialog="@dialog"></DialogRenderer>
-    }
-</dialogs>
+<dialogs>@foreach (var dialog in this.dialogService.RegisteredDialogs) { <DialogRenderer dialog="@dialog"></DialogRenderer> }</dialogs>
 
 @functions {
     protected override void OnInit()

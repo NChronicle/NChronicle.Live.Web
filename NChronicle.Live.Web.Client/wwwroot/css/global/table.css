@@ -11,7 +11,6 @@ thead {
     thead tr {
         display: flex;
         width: 100%;
-        /*background-color: var(--header-background-color);*/
         border-bottom: solid 2px vaR(--primary-accent-color);
     }
 
@@ -28,13 +27,8 @@ tbody:hover tr td {
         width: 100%;
     }
 
-        /*tbody tr:nth-child(even) {
-            background-color: rgb(40, 40, 40);
-        }*/
-
         tbody tr[selectable]:active,
         tbody tr[selectable]:focus {
-            background-image: none !important;
             background-color: var(--highlight-accent-color);
             box-shadow: inset 0 0 5px var(--primary-background-color);
             animation: background-animate .5s;
@@ -43,7 +37,7 @@ tbody:hover tr td {
 
         tbody tr[selectable]:hover {
             cursor: pointer;
-            background: linear-gradient(to right, var(--header-background-color), var(--secondary-background-color));
+            background-color: var(--secondary-accent-color);
         }
 
         tbody tr[selectable]:hover td,
@@ -67,7 +61,7 @@ th, td {
 
 @keyframes background-animate {
     0% {
-        background-color: var(--highlight-accent-color);
+        background-color: var(--secondary-accent-color);
     }
     100% {
         background-color: var(--primary-accent-color);

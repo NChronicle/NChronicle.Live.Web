@@ -5,6 +5,7 @@
     padding: 5px 10px;
     font-size: 1.2em;
     width: 200px;
+    border-radius: 5px;
 }
 
     input[type="text"]:focus,
@@ -13,15 +14,4 @@
         box-shadow: 0 0 3px var(--primary-accent-color);
         animation: border-glow .5s;
     }
-
-@keyframes border-glow {
-    0% {
-        border: solid 1px rgba(165, 64, 223, 0);
-        box-shadow: 0 0 3px rgba(165, 64, 223, 0);
-    }
-    100% {
-        border: solid 1px var(--primary-accent-color);
-        box-shadow: 0 0 3px var(--primary-accent-color);
-    }
-}
 

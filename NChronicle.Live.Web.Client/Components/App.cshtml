@@ -1,15 +1,18 @@
 ﻿@inherits Behind.App
 
-@RegisterStyleSheet("css/components/app.css")
+@RegisterStyleSheet("css/components/app.css", "css/global/textbox.css")
 
-<StyleSheetRenderer></StyleSheetRenderer>
-<DialogsRenderer></DialogsRenderer>
 
 <app-component>
 
-    <content>
-        <recordsindex />
-    </content>
+    <main>
+        <Logo></Logo>
+        <input type="text" title="advanced search" bind="@QueryString" placeholder="Search NChronicle" ref="SearchBoxElement" onkeyup="@OnKeyUp"/>
+
+        <recordsindex QueryString="@QueryString" ref="RecordsIndexComponent" />
+    </main>
 
 </app-component>
 
+<StyleSheetRenderer></StyleSheetRenderer>
+<DialogsRenderer></DialogsRenderer>

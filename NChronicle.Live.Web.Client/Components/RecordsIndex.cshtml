@@ -1,88 +1,82 @@
 ﻿@inherits Behind.RecordsIndex
 
-@RegisterStyleSheet("css/components/recordsIndex.css", "css/global/textbox.css", "css/global/table.css")
+@RegisterStyleSheet("css/components/recordsIndex.css", "css/global/table.css")
 
-<recordsindex-component>
-    <input type="text" placeholder="Advanced Search" />
-
+<recordsindex-component ref="RecordsIndexComponentElement">
     @if (this.Records != null)
     {
-        <table cellspacing="0">
-            <thead>
-                <tr>
-                    <th>
-                        Time
-                    </th>
-                    <th>
-                        Level
-                    </th>
-                    <th>
-                        Message
-                    </th>
-                    <th>
-                        Tags
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var record in this.Records)
-                {
-                    <tr selectable tabindex="0" onclick="@(() => OnRecordSelect(record))">
-                        <td>
-                            @record.Time
-                        </td>
-                        <td>
-                            @record.Level
-                        </td>
-                        <td>
-                            @record.Message
-                        </td>
-                        <td>
-                            @foreach (var tag in record.Tags)
-                            {
-                                <tag>@tag</tag>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        if (this.Records.Any())
+        {
+            <table cellspacing="0">
+                <tbody>
+                    @foreach (var record in this.Records)
+                    {
+                        <tr selectable tabindex="0" onclick="@(() => OnRecordSelect(record))">
+                            <td>
+                                <span class="inline-info">
+                                    <span>
+                                        @record.Time
+                                    </span>
+                                    ●
+                                    <span class="@record.Level">
+                                        @record.Level
+                                    </span>
+                                </span>
+                                @record.Message
+                            </td>
+                            <td>
+                                @foreach (var tag in record.Tags)
+                                {
+                                    <tag>@tag</tag>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <span class="no-results">
+                No records were found.
+            </span>
+        }
     }
     else
     {
-        <waiting></waiting>
+        <Logo Animating="@true"></Logo>
     }
 
-<dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" unfocusclosable="@true" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
-    @if (this.SelectedChronicleRecord?.Message != null)
-    {
-        <p class="message">
-            <span>@this.SelectedChronicleRecord?.Message</span>
-        </p>
-    }
-    @if (this.SelectedChronicleRecord?.Exception != null)
-    {
-        <p class="exception">
-            <h2>Exception</h2>
-            <span>@this.SelectedChronicleRecord?.Exception</span>
-        </p>
-    }
-    <p class="tags">
-        <h2>Tags</h2>
-        <span>
-            @if (this.SelectedChronicleRecord?.Tags != null && this.SelectedChronicleRecord.Tags.Any())
-            {
-                foreach (var tag in this.SelectedChronicleRecord.Tags)
+    <dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" unfocusclosable="@true" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
+        @if (this.SelectedChronicleRecord?.Message != null)
+        {
+            <p class="message">
+                <span>@this.SelectedChronicleRecord?.Message</span>
+            </p>
+        }
+        @if (this.SelectedChronicleRecord?.Exception != null)
+        {
+            <p class="exception">
+                <h2>Exception</h2>
+                <span>@this.SelectedChronicleRecord?.Exception</span>
+            </p>
+        }
+        <p class="tags">
+            <h2>Tags</h2>
+            <span>
+                @if (this.SelectedChronicleRecord?.Tags != null && this.SelectedChronicleRecord.Tags.Any())
                 {
-                    <tag>@tag</tag>
+                    foreach (var tag in this.SelectedChronicleRecord.Tags)
+                    {
+                        <tag>@tag</tag>
+                    }
                 }
-            }
-            else
-            {
-                <span class="noTags">No tags on this record.</span>
-            }
-        </span>
-    </p>
-</dialog>
+                else
+                {
+                    <span class="noTags">No tags on this record.</span>
+                }
+            </span>
+        </p>
+    </dialog>
 
 </recordsindex-component>

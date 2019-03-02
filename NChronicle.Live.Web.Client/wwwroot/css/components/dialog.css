@@ -4,6 +4,8 @@
     dialog-render div.dialog-modal-overlay {
         z-index: 98;
         position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, .7);
@@ -11,7 +13,7 @@
     }
 
     dialog-render.closing div.dialog-modal-overlay {
-        animation: fade-out-hide .5s;
+        animation: fade-out-hide .5s forwards;
     }
 
     dialog-render div.dialog-box {
@@ -25,10 +27,11 @@
         margin-left: -300px;
         box-shadow: 0 0 10px black;
         animation: upward-reveal .5s;
+        border-radius: 5px;
     }
 
     dialog-render.closing div.dialog-box {
-        animation: downward-hide .5s;
+        animation: downward-hide .5s forwards;
     }
 
         dialog-render div.dialog-box div.heading {
@@ -58,46 +61,3 @@
         dialog-render div.dialog-box div.content {
             padding: 0 30px 30px 30px;
         }
-
-@keyframes upward-reveal {
-    0% {
-        margin-top: 30px;
-        opacity: 0;
-    }
-
-    100% {
-        margin-top: 0px;
-        opacity: 1;
-    }
-}
-
-@keyframes downward-hide {
-    0% {
-        margin-top: 0px;
-        opacity: 1;
-    }
-
-    100% {
-        margin-top: 30px;
-        opacity: 0;
-    }
-}
-
-@keyframes fade-in-reveal {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out-hide {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}

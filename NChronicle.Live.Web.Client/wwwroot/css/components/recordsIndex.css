@@ -3,41 +3,39 @@
     position: relative
 }
 
-    recordsIndex-component > waiting-component {
-        position: absolute;
-        top: 50%;
-        left: 50%;
+    recordsIndex-component > logo-component {
         width: 40px;
         height: 40px;
-        margin-top: -20px;
-        margin-left: -20px;
-    }
-
-    recordsIndex-component > input[type="text"] {
-        margin: 2.5%;
-        width: 60%;
+        margin-left: calc(50%-20px);
     }
 
     recordsIndex-component table {
-        margin: 0 2.5%;
-        width: 95%;
-        box-shadow: 0 5px 10px black;
-    }
 
-    recordsIndex-component table th:nth-child(1),
-    recordsIndex-component table td:nth-child(1) {
-        flex: 0 0 150px;
     }
 
     recordsIndex-component table th:nth-child(2),
     recordsIndex-component table td:nth-child(2) {
-        flex: 0 0 80px;
-    }
-
-    recordsIndex-component table th:nth-child(4),
-    recordsIndex-component table td:nth-child(4) {
         flex: 0 1 25%;
     }
+
+    recordsIndex-component table td span.inline-info {
+        font-size: .8em;
+        display: block;
+        color: rgba(255, 255, 255, .6);
+        margin-left: -3px;
+    }
+
+        recordsIndex-component table td span.inline-info span.Critical {
+            color: rgba(255, 0,0, 0.8);
+        }
+
+        recordsIndex-component table td span.inline-info span.Success {
+            color: rgba(0, 180,0, 0.8);
+        }
+
+        recordsIndex-component table td span.inline-info span.Warning {
+            color: rgba(255, 140,0, 0.8);
+        }
 
 .record-detail-modal p:first-of-type {
     margin-top: 0;

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using NChronicle.Live.Web.Shared;
-using System.Net.Http;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
 namespace NChronicle.Live.Web.Client.Components.Behind
@@ -9,13 +8,22 @@ namespace NChronicle.Live.Web.Client.Components.Behind
     public class App : BaseComponent
     {
 
-        protected ChronicleRecordDto[] Records;
+        protected string QueryString;
+        protected ElementRef SearchBoxElement;
+        protected RecordsIndex RecordsIndexComponent;
 
-        [Inject] private HttpClient httpClient { get; set; }
-
-        protected override async Task OnInitAsync()
+        protected override async Task OnAfterRenderAsync()
         {
-            Records = await this.httpClient.GetJsonAsync<ChronicleRecordDto[]>("api/chroniclerecord");
+            await JSRuntime.Current.InvokeAsync<object>("OnKeyUpFocusElement", 190, this.SearchBoxElement);
+            await JSRuntime.Current.InvokeAsync<object>("FocusElement", this.SearchBoxElement);
+        }
+
+        protected async Task OnKeyUp(UIKeyboardEventArgs e)
+        {
+            if (e.Key == "Enter")
+            {
+                await this.RecordsIndexComponent.Query(this.QueryString, true);
+            }
         }
 
     }

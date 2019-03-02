@@ -50,9 +50,14 @@ namespace NChronicle.Live.Web.Server.Controllers
 
 
         [HttpGet]
-        public IEnumerable<ChronicleRecordDto> GetAll()
+        public IEnumerable<ChronicleRecordDto> GetAll(string query)
         {
+            var searchTerms = query?.Split(" ");
             this._chronicle.Info("Received call to fetch all records.");
+            if (searchTerms?.Any() ?? false)
+            {
+                return this._records.Where(r => searchTerms.Contains(r.Level.ToString()) || searchTerms.Any(r.Tags.Contains) || searchTerms.Any(r.Message.Contains) || searchTerms.Any(r.Time.ToString().Contains)).OrderBy(r => r.Time);
+            }
             return this._records.OrderBy(r => r.Time);
         }
     }
