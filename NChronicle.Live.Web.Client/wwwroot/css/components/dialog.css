@@ -50,13 +50,15 @@
 
         dialog-render div.dialog-box div.heading div.close-button {
             font-size: 15px;
-            padding: 20px 30px 30px 30px;
+            margin: 20px 30px 30px 30px;
         }
 
-        dialog-render div.dialog-box div.heading div.close-button:hover {
-            color: red;
-            cursor: pointer;
-        }
+            dialog-render div.dialog-box div.heading div.close-button:hover,
+            dialog-render div.dialog-box div.heading div.close-button:active,
+            dialog-render div.dialog-box div.heading div.close-button:focus {
+                color: red;
+                cursor: pointer;
+            }
 
         dialog-render div.dialog-box div.content {
             padding: 0 30px 30px 30px;

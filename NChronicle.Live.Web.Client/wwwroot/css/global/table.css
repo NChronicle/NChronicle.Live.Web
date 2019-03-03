@@ -27,6 +27,7 @@ tbody:hover tr td {
         width: 100%;
     }
 
+        tbody tr[selectable].active,
         tbody tr[selectable]:active,
         tbody tr[selectable]:focus {
             background-color: var(--highlight-accent-color);

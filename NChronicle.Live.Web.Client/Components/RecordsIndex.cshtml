@@ -11,7 +11,7 @@
                 <tbody>
                     @foreach (var record in this.Records)
                     {
-                        <tr selectable tabindex="0" onclick="@(() => OnRecordSelect(record))">
+                        <tr selectable tabindex="0" onclick="@(() => OnRecordSelect(record))" onkeyup="@(e => { if (e.Key == "Enter") OnRecordSelect(record); })" class="@(this.SelectedChronicleRecord == record ? "active" : "")">
                             <td>
                                 <span class="inline-info">
                                     <span>
@@ -47,7 +47,7 @@
         <Logo Animating="@true"></Logo>
     }
 
-    <dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" unfocusclosable="@true" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
+    <dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" onhide="@this.OnDialogClose" unfocusclosable="@true" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
         @if (this.SelectedChronicleRecord?.Message != null)
         {
             <p class="message">

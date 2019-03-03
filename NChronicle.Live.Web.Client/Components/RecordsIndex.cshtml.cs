@@ -36,6 +36,12 @@ namespace NChronicle.Live.Web.Client.Components.Behind
             this.RecordsDetailDialog.ShowDialog();
         }
 
+        protected void OnDialogClose(Dialog _)
+        {
+            this.SelectedChronicleRecord = null;
+            this.StateHasChanged();
+        }
+
         public async Task Query(string queryString = null, bool scrollIntoView = false)
         {
             this.Records = null;

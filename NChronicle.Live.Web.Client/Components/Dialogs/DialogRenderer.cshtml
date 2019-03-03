@@ -2,7 +2,7 @@
 
 @RegisterStyleSheet("css/components/dialog.css")
 
-<dialog-render class="@(this.Closing ? "closing" : "")">
+<dialog-render class="@(this.Closing ? "closing" : "")" onkeyup="@(e => { System.Console.WriteLine(e.Key);  if (e.Key == "Escape") this.OnClose(); })">
     @if (this.Dialog.Show)
     {
         @if (this.Dialog.Modal)
@@ -16,7 +16,7 @@
                 </h1>
                 @if (this.Dialog.Closable)
                 {
-                    <div class="close-button" aria-label="Close dialog" onclick="@this.OnClose">✕</div>
+                    <div class="close-button" aria-label="Close dialog" tabindex="0" ref="CloseButton" onclick="@this.OnClose" onkeyup="@(e => { if (e.Key == "Enter") this.OnClose(); })">✕</div>
                 }
             </div>
             <div class="content @this.Dialog.ContentClass">

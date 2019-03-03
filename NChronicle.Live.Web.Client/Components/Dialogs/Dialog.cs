@@ -17,20 +17,58 @@ namespace NChronicle.Live.Web.Client.Components.Dialogs
         [Parameter] public bool Modal { get; private set; }
         [Parameter] public bool Show { get; private set; }
         [Parameter] public string ContentClass { get; private set; }
+        [Parameter] public Action<Dialog> OnHide { get; private set; }
+        [Parameter] public Action<Dialog> OnShow { get; private set; }
 
+        public event Action<Dialog> OnDialogShow;
+        public event Action<Dialog> OnDialogHide;
         public event Action<Dialog> OnDialogUpdated;
 
         [Inject] private IDialogService dialogService { get; set; }
+        private bool previousShowState { get; set; }
 
         protected override async Task OnInitAsync() =>
             await this.dialogService.RegisterDialogAsync(this);
 
-        protected override async Task OnParametersSetAsync() =>
+        protected override async Task OnParametersSetAsync()
+        {
             await Task.Run(() => this.OnDialogUpdated?.Invoke(this));
+            this.CheckAndNotifyOfShowState();
+        }
 
-        public void ShowDialog() => this.Show = true;
+        public void ShowDialog()
+        {
+            this.Show = true;
+            this.CheckAndNotifyOfShowState();
+        }
 
-        public void HideDialog() => this.Show = false;
+        public void HideDialog()
+        {
+            this.Show = false;
+            this.CheckAndNotifyOfShowState();
+        }
+
+        private void CheckAndNotifyOfShowState()
+        {
+            if (previousShowState != this.Show)
+            {
+                Task.Run(() =>
+                {
+                    if (this.Show)
+                    {
+                        this.OnDialogShow?.Invoke(this);
+                        this.OnShow?.Invoke(this);
+                    }
+                    else
+                    {
+                        this.OnDialogHide?.Invoke(this);
+                        this.OnHide?.Invoke(this);
+                    }
+                });
+            }
+            previousShowState = this.Show;
+
+        }
 
         #region IDisposable Support
         private bool disposed = false; // To detect redundant calls
