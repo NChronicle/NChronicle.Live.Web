@@ -58,7 +58,7 @@ namespace NChronicle.Live.Web.Server.Controllers
             {
                 return this._records.Where(r => searchTerms.Contains(r.Level.ToString()) || searchTerms.Any(r.Tags.Contains) || searchTerms.Any(r.Message.Contains) || searchTerms.Any(r.Time.ToString().Contains)).OrderBy(r => r.Time);
             }
-            return this._records.OrderBy(r => r.Time);
+            return this._records.OrderByDescending(r => r.Time);
         }
     }
 

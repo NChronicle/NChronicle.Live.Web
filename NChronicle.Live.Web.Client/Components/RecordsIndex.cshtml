@@ -47,7 +47,9 @@
         <Logo Animating="@true"></Logo>
     }
 
-    <dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" onhide="@this.OnDialogClose" unfocusclosable="@true" closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")">
+    <dialog ref="RecordsDetailDialog" Show="@(this.SelectedChronicleRecord != null)" onhide="@this.OnDialogClose" unfocusclosable="@true"
+            closable="@true" modal="@true" contentclass="record-detail-modal" title="@($"{this.SelectedChronicleRecord?.Level} at {this.SelectedChronicleRecord?.Time}")"
+            accentcolor="@(this.SelectedChronicleRecord != null ? this.GetLevelColor(this.SelectedChronicleRecord.Level) : ((byte) 0, (byte) 0, (byte) 0))">
         @if (this.SelectedChronicleRecord?.Message != null)
         {
             <p class="message">

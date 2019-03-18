@@ -19,6 +19,7 @@ namespace NChronicle.Live.Web.Client.Components.Dialogs
         [Parameter] public string ContentClass { get; private set; }
         [Parameter] public Action<Dialog> OnHide { get; private set; }
         [Parameter] public Action<Dialog> OnShow { get; private set; }
+        [Parameter] public (byte R, byte G, byte B) AccentColor { get; private set; }
 
         public event Action<Dialog> OnDialogShow;
         public event Action<Dialog> OnDialogHide;

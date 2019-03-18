@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using NChronicle.Core.Model;
 using NChronicle.Live.Web.Client.Components.Dialogs;
 using NChronicle.Live.Web.Shared;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -19,8 +21,21 @@ namespace NChronicle.Live.Web.Client.Components.Behind
 
         protected ChronicleRecordDto SelectedChronicleRecord { get; set; }
         protected ChronicleRecordDto[] Records;
+        protected IDictionary<ChronicleLevel, (byte R, byte G, byte B)> LevelColors;
 
         [Inject] private HttpClient httpClient { get; set; }
+
+        public RecordsIndex()
+        {
+            this.LevelColors = new Dictionary<ChronicleLevel, (byte R, byte G, byte B)>
+            {
+                { ChronicleLevel.Critical, (120, 0, 0) },
+                { ChronicleLevel.Warning, (90, 90, 0) },
+                { ChronicleLevel.Success, (0, 120, 0) },
+                { ChronicleLevel.Info, (120, 120, 120) },
+                { ChronicleLevel.Debug, (60, 60, 60) }
+            };
+        }
 
         protected override async Task OnInitAsync()
         {
@@ -53,6 +68,8 @@ namespace NChronicle.Live.Web.Client.Components.Behind
             this.StateHasChanged();
             if (scrollIntoView) _ = JSRuntime.Current.InvokeAsync<object>("ScrollToElement", this.RecordsIndexComponentElement);
         }
+
+        protected (byte R, byte G, byte B) GetLevelColor(ChronicleLevel level) => LevelColors.ContainsKey(level) ? LevelColors[level] : ((byte) 0, (byte) 0, (byte) 0);
 
     }
 }

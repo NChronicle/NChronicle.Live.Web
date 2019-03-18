@@ -27,7 +27,7 @@
         margin-left: -300px;
         box-shadow: 0 0 10px black;
         animation: upward-reveal .5s;
-        border-radius: 5px;
+        border-radius: 5px
     }
 
     dialog-render.closing div.dialog-box {

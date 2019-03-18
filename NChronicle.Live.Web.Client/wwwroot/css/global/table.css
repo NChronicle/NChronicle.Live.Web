@@ -11,7 +11,7 @@ thead {
     thead tr {
         display: flex;
         width: 100%;
-        border-bottom: solid 2px vaR(--primary-accent-color);
+        border-bottom: solid 2px var(--primary-accent-color);
     }
 
 tbody {
@@ -25,6 +25,7 @@ tbody:hover tr td {
     tbody tr {
         display: flex;
         width: 100%;
+        border-radius: 5px;
     }
 
         tbody tr[selectable].active,
@@ -32,13 +33,14 @@ tbody:hover tr td {
         tbody tr[selectable]:focus {
             background-color: var(--highlight-accent-color);
             box-shadow: inset 0 0 5px var(--primary-background-color);
-            animation: background-animate .5s;
+            animation: selection-animate .5s;
             animation-fill-mode: forwards;
         }
 
         tbody tr[selectable]:hover {
             cursor: pointer;
             background-color: var(--secondary-accent-color);
+            box-shadow: 0 0 5px inset var(--secondary-accent-color);
         }
 
         tbody tr[selectable]:hover td,
@@ -60,11 +62,22 @@ th, td {
     text-align: left;
 }
 
-@keyframes background-animate {
+@keyframes selection-animate {
     0% {
         background-color: var(--secondary-accent-color);
+        transform: scale(1, 1);
     }
     100% {
         background-color: var(--primary-accent-color);
+        transform: scale(1.02, 1.02);
+    }
+}
+
+@keyframes scale-animate {
+    from {
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(1.02, 1.02);
     }
 }
